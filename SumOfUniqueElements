@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class UniqueSum {
+    public static void main(String[] args) {
+        int[] arr = {3, 4, 3, 2};
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        // Step 1: Count frequency
+        for (int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        // Step 2: Sum unique elements
+        int sum = 0;
+        for (int key : map.keySet()) {
+            if (map.get(key) == 1) {
+                sum += key;
+            }
+        }
+
+        System.out.println("Sum of unique elements: " + sum);
+    }
+}
